@@ -1,0 +1,17 @@
+
+version: '3.8'
+services:
+  rental-service:
+    image: postgres:12
+    restart: always
+    container_name: stall_management
+    ports:
+      - 3019:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: stall_management
+    volumes:
+      - data:/var/lib/postgresql/data
+volumes:
+  data:

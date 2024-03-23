@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: stall_rental_management_api
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+  datasource:
+#    url: jdbc:postgresql://localhost:5432/stall_management
+    username: postgres
+    password: 123
+    url: jdbc:postgresql://136.228.158.126:3019/stall_management
+
+# config spring data JPA
