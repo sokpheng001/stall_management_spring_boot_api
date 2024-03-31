@@ -11,4 +11,8 @@ spring:
     password: 123
     url: jdbc:postgresql://136.228.158.126:3019/stall_management
 
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
 # config spring data JPA

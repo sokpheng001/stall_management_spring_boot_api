@@ -7,10 +7,10 @@ import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import online.hackpi.stall_rental_management_api.api.role.model.Role;
+import org.hibernate.Hibernate;
 
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,6 +36,12 @@ public class User {
     private LocalDate dateOfBirth;
     private LocalDate createdAt;
     private Boolean isDeleted;
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
+    public Set<Role> getRoles(){
+        if(!Hibernate.isInitialized(roles)){
+            Hibernate.initialize(roles);
+        }
+        return roles;
+    }
 }
